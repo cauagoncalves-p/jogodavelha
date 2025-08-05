@@ -1,16 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jogo da Velha</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <main class="container">
     <h1>Jogo da Velha</h1>
-    <div id="board" class="board">
-      <!-- 9 células do jogo -->
+
+    <!-- Escolher nomes e símbolo -->
+    <div class="config">
+      <label for="player1">Jogador 1 (X):</label>
+      <input type="text" id="player1" placeholder="Nome do jogador 1" />
+      
+      <label for="player2">Jogador 2 (O):</label>
+      <input type="text" id="player2" placeholder="Nome do jogador 2" />
+
+      <label for="startSymbol">Quem começa:</label>
+      <select id="startSymbol">
+        <option value="X">Jogador 1 (X)</option>
+        <option value="O">Jogador 2 (O)</option>
+      </select>
+
+      <button id="startGame">Iniciar Jogo</button>
+    </div>
+
+    <!-- Tabuleiro -->
+    <div id="board" class="board hidden">
       <div class="cell" data-cell></div>
       <div class="cell" data-cell></div>
       <div class="cell" data-cell></div>
@@ -22,8 +40,18 @@
       <div class="cell" data-cell></div>
     </div>
 
+    <!-- Informações -->
+    <div id="info" class="info hidden">
+      <p id="turnInfo">Vez de: </p>
+      <p id="lastMove">Última jogada: </p>
+      <div class="scoreboard">
+        <p><span id="nameX">X</span>: <span id="scoreX">0</span></p>
+        <p><span id="nameO">O</span>: <span id="scoreO">0</span></p>
+      </div>
+    </div>
+
     <div id="message" class="message"></div>
-    <button id="restart">Reiniciar</button>
+    <button id="restart" class="hidden">Reiniciar</button>
   </main>
 
   <script src="script.js"></script>
