@@ -1,5 +1,8 @@
 const celulas = document.querySelectorAll('.cell');
 const restart = document.getElementById('restart')
+const iniciar = document.getElementById('startGame');
+const board = document.getElementById('board');
+const menu = document.getElementsByClassName('config');
 
 let tabuleiro = [
   ["", "", ""],
@@ -48,6 +51,11 @@ celulas.forEach((element, index) => {
     
 });
 
+
+iniciar.addEventListener('click', () => {
+    board.classList.remove('hidden');
+    menu.classList.add('hidden');
+});
 
 restart.addEventListener('click', () =>{
     for (let i = 0; i < 3; i++){
